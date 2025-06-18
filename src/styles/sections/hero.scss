@@ -1,3 +1,5 @@
+@use '@/assets/main.scss' as *;
+
 .hero-wrapper {
   position: relative;
   background-image: url('@/assets/img/hero.png');
@@ -5,10 +7,21 @@
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: start;
-  padding: 12px 0;
+  justify-content: center;
+  align-items: center;
+  padding: $spacing-4 0;
   box-sizing: border-box;
   height: 100svh;
+
+  & h1 {
+    color: $primary;
+    font-weight: 800;
+    font-size: 4rem;
+    text-align: center;
+    padding: 0 $spacing-4;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
+  }
 }

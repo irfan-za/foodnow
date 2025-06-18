@@ -1,0 +1,162 @@
+@use '@/assets/main.scss' as *;
+
+.custom {
+  &-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    @media (max-width: 768px) {
+      padding: 1rem;
+    }
+  }
+
+  &-pizza {
+    &__title {
+      color: $primary;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    &__section {
+      margin-bottom: 2rem;
+      & p {
+        margin-bottom: 1rem;
+        color: black;
+        font-weight: 800;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+.custome-size {
+  &__option {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: black;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.5rem;
+    }
+  }
+}
+
+.custom-radio {
+  &-label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0rem 0rem 0rem 3rem;
+    cursor: pointer;
+    user-select: none;
+    transform: translateX(-1rem);
+    transition: all 0.3s ease;
+
+    input:checked ~ & {
+      border-color: $primary;
+      background-color: rgba($primary, 0.1);
+    }
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.custom-input {
+  &__price {
+    color: $primary;
+    margin-left: auto;
+    font-size: 0.9rem;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  left: 1rem;
+  height: 20px;
+  width: 20px;
+  background: white;
+  border: 2px solid $secondary;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  &:after {
+    content: '';
+    position: absolute;
+    display: none;
+    top: 3.5px;
+    left: 3.5px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $primary;
+  }
+}
+
+.custom-radio-label {
+  input:checked ~ .checkmark {
+    border-color: $primary;
+
+    &:after {
+      display: block;
+    }
+  }
+}
+
+.custom-toppings {
+  &__grid {
+    display: grid;
+    max-width: 60rem;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 0.5fr));
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 0.5fr));
+      gap: 0.5rem;
+    }
+  }
+}
+
+.custom-checkbox {
+  &-label {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.8rem;
+    border: 1px solid #e0e0e0;
+    border-radius: $border-radius-full;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+
+    &:hover {
+      border-color: $primary;
+    }
+
+    &.is-selected {
+      border-color: $primary;
+      background-color: rgba($primary, 0.05);
+    }
+  }
+
+  &__input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  &__text {
+    flex: 1;
+    font-size: 0.9rem;
+    color: black;
+  }
+}

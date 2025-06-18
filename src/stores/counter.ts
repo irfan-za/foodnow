@@ -1,0 +1,87 @@
+import { defineStore } from 'pinia'
+
+interface PizzaSize {
+  id: number
+  name: string
+  extra_price: number
+}
+interface Pizza {
+  id: number
+  name: string
+  price: number
+  discount: {
+    is_active: boolean
+    final_price: number
+  }
+  toppings: number[]
+}
+interface Topping {
+  id: number
+  name: string
+  price: number
+}
+export const usePizzaSize = defineStore('size', {
+  state: () => ({
+    pizzaSize: { id: 1, name: 'Small', extra_price: 0 },
+  }),
+  actions: {
+    setSize(data: PizzaSize) {
+      this.pizzaSize = data
+    },
+    resetSize() {
+      console.log('Reset')
+      this.pizzaSize = { id: 1, name: 'Small', extra_price: 0 }
+    },
+  },
+})
+
+export const usePizza = defineStore('pizza', {
+  state: () => ({
+    pizza: {
+      id: 1,
+      name: 'Cheese Pizza',
+      price: 8,
+      discount: {
+        is_active: false,
+        final_price: 8,
+      },
+      toppings: [1, 2, 3, 4, 8, 11],
+    },
+  }),
+  actions: {
+    setPizza(pizza: Pizza) {
+      this.pizza = pizza
+    },
+    resetPizza() {
+      this.pizza = {
+        id: 1,
+        name: 'Cheese Pizza',
+        price: 8,
+        discount: {
+          is_active: false,
+          final_price: 8,
+        },
+        toppings: [1, 2, 3, 4, 8, 11],
+      }
+    },
+  },
+})
+export const useTopping = defineStore('topping', {
+  state: () => ({
+    topping: [] as Topping[],
+  }),
+  actions: {
+    setTopping(data: Topping) {
+      const existingIndex = this.topping.findIndex((item) => item.id === data.id)
+
+      if (existingIndex === -1) {
+        this.topping.push(data)
+      } else {
+        this.topping.splice(existingIndex, 1)
+      }
+    },
+    resetTopping() {
+      this.topping.splice(0, this.topping.length)
+    },
+  },
+})

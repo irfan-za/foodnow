@@ -1,0 +1,177 @@
+@use '@/assets/main.scss' as *;
+
+.navbar {
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+
+  &__container {
+    padding: $spacing-6;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    height: 2rem;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: $spacing-8;
+    font-weight: $font-weight-medium;
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &--active {
+      color: $primary;
+    }
+  }
+
+  &__auth {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-4;
+  }
+
+  &__login {
+    color: $primary-foreground;
+    padding: $spacing-4 $spacing-4;
+    transition: color 0.3s ease-in;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__register {
+    background-color: $primary;
+    color: $primary-foreground;
+    padding: 8px 24px;
+    border-radius: $border-radius-full;
+    transition: background-color 0.3s ease-in;
+
+    &:hover {
+      background-color: $primary-dark;
+    }
+  }
+
+  &__mobile-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 60;
+    padding: 0;
+
+    span {
+      width: 30px;
+      height: 3px;
+      background: #fff;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    &.is-active {
+      span {
+        &:first-child {
+          transform: rotate(45deg) translate(7px, 7px);
+        }
+        &:nth-child(2) {
+          opacity: 0;
+        }
+        &:last-child {
+          transform: rotate(-45deg) translate(7px, -7px);
+        }
+      }
+    }
+  }
+
+  &__mobile-overlay {
+    display: flex;
+    @media (max-width: 768px) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      gap: $spacing-8;
+
+      &.is-active {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    &__mobile-toggle {
+      display: flex;
+    }
+
+    &__nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-6;
+
+      .navbar__link {
+        font-size: 1.25rem;
+      }
+    }
+
+    &__auth {
+      flex-direction: column;
+      gap: $spacing-4;
+
+      .navbar__login,
+      .navbar__register {
+        font-size: 1.1rem;
+        padding: $spacing-4 $spacing-8;
+      }
+    }
+
+    &__container {
+      padding: $spacing-3;
+    }
+
+    &__nav,
+    &__auth {
+      display: none;
+
+      &--mobile {
+        display: flex;
+      }
+    }
+  }
+}

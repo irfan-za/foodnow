@@ -1,0 +1,65 @@
+$font-family-base: 'Inter', Roboto, sans-serif;
+$font-size-base: 1rem;
+$font-weight-medium: 500;
+
+$primary: #ff9900;
+$primary-dark: #cc7a00;
+$primary-transparent: rgba(255, 153, 0, 0.352);
+$primary-foreground: #ffffff;
+$background: #f8f8f6;
+$secondary: #ffd699;
+$muted: #8c8c8c;
+$accent: #e6e6e6;
+
+$spacing-1: 0.25rem;
+$spacing-2: 0.5rem;
+$spacing-3: 0.75rem;
+$spacing-4: 1rem;
+$spacing-6: 1.5rem;
+$spacing-8: 2rem;
+$border-radius-full: 9999px;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+  color: #4b4a4a;
+}
+
+body {
+  min-height: 100vh;
+  transition:
+    color 0.5s,
+    background-color 0.5s;
+  line-height: 1.6;
+  font-family: $font-family-base;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a {
+  text-decoration: none;
+  transition: 0.4s;
+  padding: 3px;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+}
+.font-inter {
+  font-family: $font-family-base;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: $font-family-base;
+  background-color: $background;
+}

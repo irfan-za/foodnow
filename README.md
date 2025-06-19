@@ -1,39 +1,92 @@
-# foodnow
+# 🍕 Foodnow - Pizza Ordering App
 
-This template should help get you started developing with Vue 3 in Vite.
+Foodnow is a modern pizza ordering web application built with Vue 3. It provides users with an intuitive interface to browse pizza options, customize their orders, and check out seamlessly.
 
-## Recommended IDE Setup
+**Live Demo:** [https://foodnow-theta.vercel.app](https://foodnow-theta.vercel.app)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🚀 Getting Started
 
-## Type Support for `.vue` Imports in TS
+### Prerequisites
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+- Node.js (v20 or newer)
+- pnpm (recommended) or npm
 
-## Customize configuration
+### Installation
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. Clone the repository:
 
-## Project Setup
+```sh
+git clone https://github.com/irfan-za/foodnow.git
+cd foodnow
+```
+
+2. Install dependencies:
 
 ```sh
 pnpm install
 ```
 
-### Compile and Hot-Reload for Development
+3. Start the development server:
 
 ```sh
 pnpm dev
 ```
 
-### Type-Check, Compile and Minify for Production
+## ✨ Features
 
-```sh
-pnpm build
+- **Pizza Selection**: Choose from a variety of pre-designed pizza options
+- **Custom Pizza Builder**: Create your own pizza with customizable size and toppings
+- **Dynamic Pricing**: Real-time price calculation based on selections
+- **Responsive Design**: Works seamlessly across desktop and mobile devices
+- **Order Summary**: Clear breakdown of your order with item-by-item pricing
+- **Special Offers**: Promotional prices and discounts on select items
+
+## 🛠️ Tech Stack
+
+- **Vue 3**: JavaScript framework with Composition API
+- **TypeScript**: For type safety and better developer experience
+- **Vue Router**: For navigation and routing
+- **Pinia**: State management solution
+- **SCSS/SASS**: CSS preprocessor for advanced styling capabilities
+- **BEM Methodology**: For maintainable and scalable CSS architecture
+- **Vite**: Next generation frontend build tool
+
+## 📁 Folder Structure
+
+```
+foodnow/
+├── public/                # Public assets
+├── src/
+│   ├── assets/            # Project assets
+│   │   ├── icons/         # Icon files
+│   │   └── images/        # Image files
+│   ├── components/        # Vue components
+│   │   ├── layout/        # Layout components
+│   │   └── pizza/         # Pizza-related components
+│   ├── json/              # Data files
+│   │   ├── pizza-list.json     # Available pizzas
+│   │   ├── size-list.json      # Available sizes
+│   │   └── topping-list.json   # Available toppings
+│   ├── lib/               # Utility libraries
+│   ├── router/            # Vue Router configuration
+│   ├── stores/            # Pinia store modules
+│   ├── styles/            # Global SCSS styles
+│   │   ├── layout/        # Layout-specific styles
+│   │   └── pizza/         # Pizza-specific styles
+│   ├── types/             # TypeScript type definitions
+│   └── views/             # Route view components
+├── App.vue                # Root component
+├── main.ts               # Application entry point
+└── README.md             # Project documentation
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+## 📝 Design Approach
 
-```sh
-pnpm lint
-```
+- **Component-Based Architecture**: Modular components for better reusability and maintainability
+- **BEM Methodology**: Block Element Modifier approach to CSS for consistent and scalable styling
+- **Responsive Design**: Mobile-first approach to ensure great experience on all devices
+- **Composition API**: Leveraging Vue 3's Composition API for better organization of component logic
+
+## 📄 License
+
+Foodnow is licensed under the [MIT License](https://github.com/irfan-za/foodnow/blob/main/LICENSE.md).

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HeroSection from '@/components/section/HeroSection.vue'
-import CustomPizzaSection from '@/components/section/CustomPizzaSection.vue'
-import ChoosePizzaSection from '@/components/section/ChoosePizzaSection.vue'
+import HeroSection from '@/components/layout/HeroSection.vue'
+import CustomPizzaSection from '@/components/pizza/CustomPizza.vue'
+import ChoosePizzaSection from '@/components/pizza/ChoosePizza.vue'
 </script>
 
 <template>

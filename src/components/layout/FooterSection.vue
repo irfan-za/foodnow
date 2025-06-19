@@ -80,4 +80,4 @@
   </footer>
 </template>
 
-<style src="@/styles/sections/footer.scss" scoped></style>
+<style src="@/styles/layout/footer.scss" scoped></style>

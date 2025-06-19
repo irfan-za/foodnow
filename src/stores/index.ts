@@ -28,10 +28,12 @@ export const usePizza = defineStore('pizza', {
       },
       toppings: [1, 2, 3, 4, 8, 11],
     },
+    selectedPizzaId: null as number | null,
   }),
   actions: {
     setPizza(pizza: Pizza) {
       this.pizza = pizza
+      this.selectedPizzaId = pizza.id
     },
     resetPizza() {
       this.pizza = {
@@ -44,6 +46,7 @@ export const usePizza = defineStore('pizza', {
         },
         toppings: [1, 2, 3, 4, 8, 11],
       }
+      this.selectedPizzaId = null
     },
   },
 })

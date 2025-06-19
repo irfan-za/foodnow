@@ -96,6 +96,9 @@ onMounted(() => {
 const toppings = ref(toppingList.data)
 
 const isToppingAllowed = (toppingId: number) => {
+  if (pizzaStore.selectedPizzaId === null) {
+    return false
+  }
   return pizzaStore.pizza.toppings?.includes(toppingId) || false
 }
 
@@ -110,4 +113,4 @@ const handleToppingClick = (topping: Topping) => {
 }
 </script>
 
-<style src="@/styles/sections/custom-pizza.scss" scoped></style>
+<style src="@/styles/pizza/custom-pizza.scss" lang="scss" scoped></style>

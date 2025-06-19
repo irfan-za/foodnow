@@ -68,4 +68,4 @@ const closeMenu = () => {
 }
 </script>
 
-<style src="@/styles/sections/navbar.scss" lang="scss" scoped></style>
+<style src="@/styles/layout/navbar.scss" lang="scss" scoped></style>

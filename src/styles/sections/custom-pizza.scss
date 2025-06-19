@@ -33,7 +33,7 @@
       & p {
         margin-bottom: 1rem;
         color: black;
-        font-weight: 800;
+        font-weight: $font-weight-bold;
         font-size: 1rem;
       }
     }
@@ -182,7 +182,7 @@
   &__text {
     flex: 1;
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: $font-weight-medium;
     text-align: center;
   }
 }

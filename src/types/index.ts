@@ -1,9 +1,10 @@
-interface PizzaSize {
+type PizzaSize = {
   id: number
   name: string
   extra_price: number
 }
-interface Pizza {
+
+type Pizza = {
   id: number
   name: string
   price: number
@@ -13,10 +14,11 @@ interface Pizza {
   }
   toppings: number[]
 }
-interface Topping {
+
+type Topping = {
   id: number
   name: string
   price: number
 }
 
-export { PizzaSize, Pizza, Topping }
+export type { PizzaSize, Pizza, Topping }

@@ -39,7 +39,7 @@
 
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
-import logo from '@/assets/img/logo.svg'
+import logo from '@/assets/images/logo.svg'
 import { ref } from 'vue'
 
 const route = useRoute()

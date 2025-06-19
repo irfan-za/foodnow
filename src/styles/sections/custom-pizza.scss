@@ -2,19 +2,29 @@
 
 .custom {
   &-content {
-    max-width: 1200px;
+    width: 100%;
+    padding: 40px 24px;
     margin: 0 auto;
-    padding: 2rem;
+    @media (min-width: 1280px) {
+      flex-direction: row;
+      padding: 64px;
+    }
 
     @media (max-width: 768px) {
-      padding: 1rem;
+      padding: 24px 16px;
+      gap: 24px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 20px 12px;
+      gap: 20px;
     }
   }
 
   &-pizza {
     &__title {
       color: $primary;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       margin-bottom: 1rem;
     }
 
@@ -67,14 +77,6 @@
     cursor: pointer;
     height: 0;
     width: 0;
-  }
-}
-
-.custom-input {
-  &__price {
-    color: $primary;
-    margin-left: auto;
-    font-size: 0.9rem;
   }
 }
 
@@ -133,16 +135,39 @@
     border: 1px solid #e0e0e0;
     border-radius: $border-radius-full;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-in;
     background: white;
+    color: black;
 
     &:hover {
       border-color: $primary;
+      .custom-checkbox__text {
+        transition: all 0.3s ease-in;
+        color: $primary;
+      }
     }
 
     &.is-selected {
       border-color: $primary;
       background-color: rgba($primary, 0.05);
+
+      .custom-checkbox__text {
+        color: $primary;
+      }
+    }
+
+    &.is-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      border-color: $muted;
+      background-color: #adacac;
+
+      &:hover {
+        border-color: $muted;
+        .custom-checkbox__text {
+          color: black;
+        }
+      }
     }
   }
 
@@ -156,7 +181,8 @@
 
   &__text {
     flex: 1;
-    font-size: 0.9rem;
-    color: black;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
   }
 }

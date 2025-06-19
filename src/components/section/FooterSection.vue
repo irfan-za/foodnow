@@ -2,7 +2,7 @@
   <footer class="container">
     <div class="footer__wrapper">
       <div class="footer__section">
-        <img src="@/assets/img/logo-alt.svg" class="footer__logo" />
+        <img src="@/assets/images/logo-alt.svg" class="footer__logo" />
         <div>
           <h3>Find Us :</h3>
           <div class="footer__social-links">
@@ -11,21 +11,21 @@
               target="_blank"
               class="footer__social-icon"
             >
-              <img src="@/assets/img/icons/facebook.svg" alt="Facebook" />
+              <img src="@/assets/icons/facebook.svg" alt="Facebook" />
             </a>
             <a
               href="https://www.instagram.com/timedoorindonesia/"
               target="_blank"
               class="footer__social-icon"
             >
-              <img src="@/assets/img/icons/instagram.svg" alt="Instagram" />
+              <img src="@/assets/icons/instagram.svg" alt="Instagram" />
             </a>
             <a
               href="https://www.youtube.com/@timedoorindonesia"
               target="_blank"
               class="footer__social-icon"
             >
-              <img src="@/assets/img/icons/youtube.svg" alt="YouTube" />
+              <img src="@/assets/icons/youtube.svg" alt="YouTube" />
             </a>
           </div>
         </div>
@@ -47,15 +47,15 @@
       <div class="footer__section">
         <h3>Contact</h3>
         <a href="mailto:Food.now@mail.com" class="footer__contact-item">
-          <img src="@/assets/img/icons/mail.svg" alt="Email" />
+          <img src="@/assets/icons/mail.svg" alt="Email" />
           Food.now@mail.com
         </a>
         <div class="footer__contact-item">
-          <img src="@/assets/img/icons/phone.svg" alt="Phone" />
+          <img src="@/assets/icons/phone.svg" alt="Phone" />
           +6284477102943
         </div>
         <a href="https://wa.me/628184938494" target="_blank" class="footer__contact-item">
-          <img src="@/assets/img/icons/whatsapp.svg" alt="WhatsApp" />
+          <img src="@/assets/icons/whatsapp.svg" alt="WhatsApp" />
           +628184938494
         </a>
       </div>
@@ -63,7 +63,7 @@
       <div class="footer__section">
         <h3>Location</h3>
         <div class="footer__location-header">
-          <img src="@/assets/img/icons/location.svg" />
+          <img src="@/assets/icons/location.svg" />
           <h4>Kerobokan</h4>
         </div>
         <a href="https://g.page/timedoor?share" target="_blank" class="footer__location-address">

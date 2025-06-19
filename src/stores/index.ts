@@ -1,25 +1,6 @@
+import type { Pizza, PizzaSize, Topping } from '@/types'
 import { defineStore } from 'pinia'
 
-interface PizzaSize {
-  id: number
-  name: string
-  extra_price: number
-}
-interface Pizza {
-  id: number
-  name: string
-  price: number
-  discount: {
-    is_active: boolean
-    final_price: number
-  }
-  toppings: number[]
-}
-interface Topping {
-  id: number
-  name: string
-  price: number
-}
 export const usePizzaSize = defineStore('size', {
   state: () => ({
     pizzaSize: { id: 1, name: 'Small', extra_price: 0 },
@@ -80,6 +61,7 @@ export const useTopping = defineStore('topping', {
         this.topping.splice(existingIndex, 1)
       }
     },
+
     resetTopping() {
       this.topping.splice(0, this.topping.length)
     },

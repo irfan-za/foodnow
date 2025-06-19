@@ -2,13 +2,19 @@
 
 .navbar {
   background-color: transparent;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100%;
   z-index: 50;
+  transition: background-color 0.3s ease;
+
+  &--scrolled {
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+  }
 
   &__container {
-    padding: $spacing-6;
+    padding: $spacing-2;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -116,7 +122,7 @@
       left: 0;
       width: 100%;
       height: 100vh;
-      background: rgba(0, 0, 0, 0.95);
+      background: #000;
       display: flex;
       flex-direction: column;
       align-items: center;

@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar">
+  <header class="navbar" :class="{ 'navbar--scrolled': !isTransparent }">
     <div class="navbar__container">
       <a class="navbar__logo" href="/">
         <img :src="logo" alt="Foodnow Logo" />
@@ -40,7 +40,7 @@
 <script setup lang="ts">
 import { RouterLink, useRoute } from 'vue-router'
 import logo from '@/assets/images/logo.svg'
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const route = useRoute()
 const routes = [
@@ -56,6 +56,7 @@ const isActiveRoute = (path: string): boolean => {
 }
 
 const isMenuOpen = ref(false)
+const isTransparent = ref(true)
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
@@ -66,6 +67,19 @@ const closeMenu = () => {
   isMenuOpen.value = false
   document.body.style.overflow = ''
 }
+
+const handleScroll = () => {
+  isTransparent.value = window.scrollY < 50
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+  handleScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style src="@/styles/layout/navbar.scss" lang="scss" scoped></style>

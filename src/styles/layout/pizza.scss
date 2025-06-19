@@ -1,0 +1,44 @@
+@use '@/assets/main.scss' as *;
+
+.pizza-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1rem;
+
+  &__content {
+    display: grid;
+    grid-template-areas:
+      'choose'
+      'custom'
+      'payment';
+    gap: 2rem;
+  }
+
+  &__choose {
+    grid-area: choose;
+  }
+
+  &__custom {
+    grid-area: custom;
+  }
+
+  &__payment {
+    grid-area: payment;
+  }
+
+  @media (min-width: 1024px) {
+    &__content {
+      grid-template-columns: 9fr 3fr;
+      grid-template-areas:
+        'choose payment'
+        'custom payment';
+    }
+
+    &__payment {
+      position: sticky;
+      top: 2rem;
+      height: fit-content;
+    }
+  }
+}

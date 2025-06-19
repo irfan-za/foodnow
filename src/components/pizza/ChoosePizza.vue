@@ -42,8 +42,6 @@
           </div>
         </div>
       </div>
-      <!-- Payment sumary -->
-      <PaymentSummary />
     </div>
   </section>
 </template>
@@ -54,7 +52,6 @@ import offerTag from '@/assets/images/ribbon.svg'
 import { useTopping, usePizza } from '@/stores/index'
 import { formatPrice } from '@/lib/utils'
 import type { Pizza } from '@/types'
-import PaymentSummary from './PaymentSummary.vue'
 
 const pizzas = pizzaList.data as Pizza[]
 const toppingStore = useTopping()

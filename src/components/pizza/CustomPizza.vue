@@ -103,7 +103,7 @@ const isToppingAllowed = (toppingId: number) => {
 }
 
 const isToppingSelected = (toppingId: number) => {
-  return toppingStore.topping.some((item) => item.id === toppingId)
+  return toppingStore.toppings.some((item) => item.id === toppingId)
 }
 
 const handleToppingClick = (topping: Topping) => {

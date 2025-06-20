@@ -52,21 +52,21 @@ export const usePizza = defineStore('pizza', {
 })
 export const useTopping = defineStore('topping', {
   state: () => ({
-    topping: [] as Topping[],
+    toppings: [] as Topping[],
   }),
   actions: {
     setTopping(data: Topping) {
-      const existingIndex = this.topping.findIndex((item) => item.id === data.id)
+      const existingIndex = this.toppings.findIndex((item) => item.id === data.id)
 
       if (existingIndex === -1) {
-        this.topping.push(data)
+        this.toppings.push(data)
       } else {
-        this.topping.splice(existingIndex, 1)
+        this.toppings.splice(existingIndex, 1)
       }
     },
 
     resetTopping() {
-      this.topping.splice(0, this.topping.length)
+      this.toppings.splice(0, this.toppings.length)
     },
   },
 })

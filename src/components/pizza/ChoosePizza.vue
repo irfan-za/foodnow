@@ -25,7 +25,7 @@
               />
             </div>
             <div class="choose-pizza__details">
-              <h3 class="choose-pizza__name">{{ pizza.name }}</h3>
+              <h2 class="choose-pizza__name">{{ pizza.name }}</h2>
               <div class="choose-pizza__price-wrapper">
                 <span class="choose-pizza__price">
                   ${{
@@ -48,24 +48,35 @@
 
 <script setup lang="ts">
 import pizzaList from '@/json/pizza-list.json'
+import toppingList from '@/json/topping-list.json'
 import offerTag from '@/assets/images/ribbon.svg'
 import { useTopping, usePizza } from '@/stores/index'
 import { formatPrice } from '@/lib/utils'
-import type { Pizza } from '@/types'
+import type { Pizza, Topping } from '@/types'
 
 const pizzas = pizzaList.data as Pizza[]
+const toppings = toppingList.data as Topping[]
 const toppingStore = useTopping()
 const pizzaStore = usePizza()
 
 const selectPizza = (pizza: Pizza) => {
   if (pizzaStore.selectedPizzaId === pizza.id) {
     pizzaStore.resetPizza()
+    toppingStore.resetTopping()
   } else {
     pizzaStore.selectedPizzaId = pizza.id
     pizzaStore.setPizza(pizza)
   }
-
-  toppingStore.resetTopping()
+  if (toppingStore.toppings.length > 0) {
+    toppings.forEach((topping) => {
+      if (
+        !pizzaStore.pizza.toppings?.includes(topping.id) &&
+        toppingStore.toppings?.includes(topping)
+      ) {
+        toppingStore.setTopping(topping)
+      }
+    })
+  }
 }
 </script>
 

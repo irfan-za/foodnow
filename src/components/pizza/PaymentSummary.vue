@@ -59,7 +59,7 @@ const pizzaSizeStore = usePizzaSize()
 const toppingStore = useTopping()
 const pizzaStore = usePizza()
 
-const toppings = computed(() => toppingStore.topping)
+const toppings = computed(() => toppingStore.toppings)
 const pizzaSize = computed(() => pizzaSizeStore.pizzaSize)
 
 const totalToppingPrice = computed(() => {

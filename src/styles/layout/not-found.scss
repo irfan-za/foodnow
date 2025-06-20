@@ -1,0 +1,53 @@
+@use '@/assets/main.scss' as *;
+@use 'sass:color';
+
+.not-found {
+  position: relative;
+  background-image: url('@/assets/images/hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+  text-align: center;
+
+  &__title {
+    font-size: 8rem;
+    font-weight: 700;
+    color: $primary;
+    line-height: 1;
+
+    @media (max-width: 576px) {
+      font-size: 6rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 2.5rem;
+    color: $primary;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    @media (max-width: 576px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__button {
+    display: inline-block;
+    background-color: $primary;
+    color: $primary-foreground;
+    padding: 0.8rem 2rem;
+    border-radius: $border-radius-full;
+    font-weight: $font-weight-medium;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: color.adjust($primary, $lightness: -10%);
+    }
+  }
+}

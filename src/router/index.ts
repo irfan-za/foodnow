@@ -11,7 +11,7 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: '/:pathMatch(.*)*',
+      path: '/:notFound',
       name: 'not-found',
       component: NotFoundView,
     },

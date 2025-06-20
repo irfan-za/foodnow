@@ -1,6 +1,9 @@
 import type { Pizza, PizzaSize, Topping } from '@/types'
 import { defineStore } from 'pinia'
 
+/**
+ * Store for managing the selected pizza size.
+ */
 export const usePizzaSize = defineStore('size', {
   state: () => ({
     pizzaSize: { id: 1, name: 'Small', extra_price: 0 },
@@ -16,6 +19,9 @@ export const usePizzaSize = defineStore('size', {
   },
 })
 
+/**
+ * Store for managing the selected pizza.
+ */
 export const usePizza = defineStore('pizza', {
   state: () => ({
     pizza: {
@@ -50,6 +56,9 @@ export const usePizza = defineStore('pizza', {
     },
   },
 })
+/**
+ * Store for managing pizza toppings.
+ */
 export const useTopping = defineStore('topping', {
   state: () => ({
     toppings: [] as Topping[],

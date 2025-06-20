@@ -4,6 +4,12 @@ Foodnow is a modern pizza ordering web application built with Vue 3. It provides
 
 **Live Demo:** [https://foodnow-theta.vercel.app](https://foodnow-theta.vercel.app)
 
+## 📊 Performance
+
+![Lighthouse Score](https://raw.githubusercontent.com/irfan-za/foodnow/refs/heads/main/public/images/lighthouse-score.png)
+
+Check the performance [here](https://googlechrome.github.io/lighthouse/viewer/?psiurl=https%3A%2F%2Ffoodnow-theta.vercel.app%2F&strategy=desktop&category=performance&category=accessibility&category=best-practices&category=seo&locale=en-US&utm_source=lh-chrome-ext).
+
 ## 🚀 Getting Started
 
 ### Prerequisites

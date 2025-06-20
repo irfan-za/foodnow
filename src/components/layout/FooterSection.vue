@@ -2,7 +2,7 @@
   <footer class="container">
     <div class="footer__wrapper">
       <div class="footer__section">
-        <img src="@/assets/images/logo-alt.svg" alt="Food Now Logo" class="footer__logo" />
+        <img src="@/assets/images/logo-alt.svg" class="footer__logo" />
         <div>
           <h3>Find Us :</h3>
           <div class="footer__social-links">
@@ -11,21 +11,21 @@
               target="_blank"
               class="footer__social-icon"
             >
-              <img src="@/assets/icons/facebook.svg" alt="Food Now Facebook Page" />
+              <img src="@/assets/icons/facebook.svg" alt="Facebook" />
             </a>
             <a
               href="https://www.instagram.com/timedoorindonesia/"
               target="_blank"
               class="footer__social-icon"
             >
-              <img src="@/assets/icons/instagram.svg" alt="Food Now Instagram Profile" />
+              <img src="@/assets/icons/instagram.svg" alt="Instagram" />
             </a>
             <a
               href="https://www.youtube.com/@timedoorindonesia"
               target="_blank"
               class="footer__social-icon"
             >
-              <img src="@/assets/icons/youtube.svg" alt="Food Now YouTube Channel" />
+              <img src="@/assets/icons/youtube.svg" alt="YouTube" />
             </a>
           </div>
         </div>
@@ -47,15 +47,15 @@
       <div class="footer__section">
         <h3>Contact</h3>
         <a href="mailto:Food.now@mail.com" class="footer__contact-item">
-          <img src="@/assets/icons/mail.svg" alt="Email Icon" />
+          <img src="@/assets/icons/mail.svg" alt="Email" />
           Food.now@mail.com
         </a>
         <div class="footer__contact-item">
-          <img src="@/assets/icons/phone.svg" alt="Phone Icon" />
+          <img src="@/assets/icons/phone.svg" alt="Phone" />
           +6284477102943
         </div>
         <a href="https://wa.me/628184938494" target="_blank" class="footer__contact-item">
-          <img src="@/assets/icons/whatsapp.svg" alt="WhatsApp Icon" />
+          <img src="@/assets/icons/whatsapp.svg" alt="WhatsApp" />
           +628184938494
         </a>
       </div>
@@ -63,14 +63,10 @@
       <div class="footer__section">
         <h3>Location</h3>
         <div class="footer__location-header">
-          <img src="@/assets/icons/location.svg" alt="Location Icon" />
+          <img src="@/assets/icons/location.svg" />
           <h4>Kerobokan</h4>
         </div>
-        <a
-          href="https://g.page/timedoor?share"
-          target="_blank"
-          class="footer__location-address"
-        >
+        <a href="https://g.page/timedoor?share" target="_blank" class="footer__location-address">
           Jl. Raya Kerobokan Br Taman, Kuta No.98, Kerobokan Kelod, Kec. Kuta Utara, Kabupaten
           Badung, Bali 80361
         </a>

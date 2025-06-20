@@ -5,6 +5,7 @@
         <img :src="logo" alt="Foodnow Logo" />
       </a>
 
+      <!-- Mobile toggle button -->
       <button
         class="navbar__mobile-toggle"
         @click="toggleMenu"
@@ -15,6 +16,7 @@
         <span></span>
       </button>
 
+      <!-- Mobile overlay for navigation and auth -->
       <div class="navbar__mobile-overlay" :class="{ 'is-active': isMenuOpen }">
         <nav class="navbar__nav" :class="{ 'navbar__nav--mobile': isMenuOpen }">
           <RouterLink
@@ -58,16 +60,19 @@ const isActiveRoute = (path: string): boolean => {
 const isMenuOpen = ref(false)
 const isTransparent = ref(true)
 
+// Toggle the mobile menu
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
   document.body.style.overflow = isMenuOpen.value ? 'hidden' : ''
 }
 
+// Close the mobile menu
 const closeMenu = () => {
   isMenuOpen.value = false
   document.body.style.overflow = ''
 }
 
+// Handle scroll event to change navbar transparency
 const handleScroll = () => {
   isTransparent.value = window.scrollY < 50
 }

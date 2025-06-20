@@ -14,6 +14,7 @@
             }"
             @click="selectPizza(pizza)"
           >
+            <!-- Display offer tag if pizza has an active discount -->
             <div v-if="pizza.discount.is_active" class="choose-pizza__offer-tag">
               <img :src="offerTag" alt="Special offer" />
             </div>
@@ -34,6 +35,7 @@
                       : formatPrice(pizza.price)
                   }}
                 </span>
+                <!-- Display original price if pizza is discounted -->
                 <span v-if="pizza.discount.is_active" class="choose-pizza__price--discount">
                   ${{ formatPrice(pizza.price) }}
                 </span>
@@ -59,6 +61,7 @@ const toppings = toppingList.data as Topping[]
 const toppingStore = useTopping()
 const pizzaStore = usePizza()
 
+// Function to handle pizza selection
 const selectPizza = (pizza: Pizza) => {
   if (pizzaStore.selectedPizzaId === pizza.id) {
     pizzaStore.resetPizza()

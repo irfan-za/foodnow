@@ -15,17 +15,20 @@
           </div>
         </div>
 
+        <!-- Display size details -->
         <div class="payment__list">
           <div class="payment__list-name">Size - {{ pizzaSize.name }}</div>
           <div class="payment__list-price">${{ formatPrice(pizzaSize.extra_price) }}</div>
         </div>
 
+        <!-- Display each selected topping -->
         <div v-for="item in toppings" :key="item.id" class="payment__list">
           <div class="payment__list-name">{{ item.name }}</div>
           <div class="payment__list-price">${{ formatPrice(item.price) }}</div>
         </div>
       </div>
 
+      <!-- Display total price -->
       <div class="payment__total">
         <span>Total Price</span>
         <p>${{ formatPrice(totalPrice) }}</p>
@@ -37,6 +40,7 @@
     </button>
   </div>
 
+  <!-- Modal for order success -->
   <div :class="{ modal: true, 'modal--active': modal }">
     <div class="modal__content">
       <div class="modal__icon-wrapper">
@@ -62,10 +66,12 @@ const pizzaStore = usePizza()
 const toppings = computed(() => toppingStore.toppings)
 const pizzaSize = computed(() => pizzaSizeStore.pizzaSize)
 
+// Calculate the total price of toppings
 const totalToppingPrice = computed(() => {
   return toppings.value.reduce((sum, item) => sum + item.price, 0)
 })
 
+// Calculate the total price of the order
 const totalPrice = computed(() => {
   if (pizzaStore.selectedPizzaId === null) return 0
   const pizzaPrice = pizzaStore.pizza.discount.is_active
@@ -81,6 +87,7 @@ const setModal = () => {
   modal.value = !modal.value
 }
 
+// Function to reset the payment state
 const resetPayment = () => {
   pizzaSizeStore.resetSize()
   toppingStore.resetTopping()

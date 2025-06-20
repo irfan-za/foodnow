@@ -95,6 +95,7 @@ onMounted(() => {
 
 const toppings = ref(toppingList.data)
 
+// Check if a topping is allowed based on the selected pizza
 const isToppingAllowed = (toppingId: number) => {
   if (pizzaStore.selectedPizzaId === null) {
     return false
@@ -102,10 +103,12 @@ const isToppingAllowed = (toppingId: number) => {
   return pizzaStore.pizza.toppings?.includes(toppingId) || false
 }
 
+// Check if a topping is currently selected
 const isToppingSelected = (toppingId: number) => {
   return toppingStore.toppings.some((item) => item.id === toppingId)
 }
 
+// Handle the select/unselect topping
 const handleToppingClick = (topping: Topping) => {
   if (isToppingAllowed(topping.id)) {
     toppingStore.setTopping(topping)

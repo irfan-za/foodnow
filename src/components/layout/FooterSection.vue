@@ -2,7 +2,7 @@
   <footer class="container">
     <div class="footer__wrapper">
       <div class="footer__section">
-        <img src="@/assets/images/logo-alt.svg" class="footer__logo" />
+        <img src="@/assets/images/logo-alt.svg" alt="Foodnow Logo" class="footer__logo" />
         <div>
           <h3>Find Us :</h3>
           <div class="footer__social-links">
@@ -63,7 +63,7 @@
       <div class="footer__section">
         <h3>Location</h3>
         <div class="footer__location-header">
-          <img src="@/assets/icons/location.svg" />
+          <img src="@/assets/icons/location.svg" alt="Location" />
           <h4>Kerobokan</h4>
         </div>
         <a href="https://g.page/timedoor?share" target="_blank" class="footer__location-address">

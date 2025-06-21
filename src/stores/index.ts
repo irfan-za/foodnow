@@ -13,7 +13,6 @@ export const usePizzaSize = defineStore('size', {
       this.pizzaSize = data
     },
     resetSize() {
-      console.log('Reset')
       this.pizzaSize = { id: 1, name: 'Small', extra_price: 0 }
     },
   },
@@ -40,6 +39,9 @@ export const usePizza = defineStore('pizza', {
     setPizza(pizza: Pizza) {
       this.pizza = pizza
       this.selectedPizzaId = pizza.id
+      const toppingStore = useTopping()
+
+      toppingStore.updateToppingsBasedOnPizza(pizza.toppings)
     },
     resetPizza() {
       this.pizza = {
@@ -64,18 +66,29 @@ export const useTopping = defineStore('topping', {
     toppings: [] as Topping[],
   }),
   actions: {
-    setTopping(data: Topping) {
-      const existingIndex = this.toppings.findIndex((item) => item.id === data.id)
+    updateToppingsBasedOnPizza(allowedToppingIds: number[]) {
+      this.toppings = this.toppings.map((topping) => {
+        const isActive = allowedToppingIds.includes(topping.id)
+        return {
+          ...topping,
+          is_active: isActive,
+          is_selected: isActive ? topping.is_selected : false,
+        }
+      })
+    },
+    toggleToppingSelection(topping: Topping) {
+      const existingIndex = this.toppings.findIndex((item) => item.id === topping.id)
+      const toppingData = { ...topping, is_selected: !topping.is_selected }
 
-      if (existingIndex === -1) {
-        this.toppings.push(data)
+      if (existingIndex === -1 && topping.is_active) {
+        this.toppings = [...this.toppings, toppingData]
       } else {
         this.toppings.splice(existingIndex, 1)
       }
     },
 
     resetTopping() {
-      this.toppings.splice(0, this.toppings.length)
+      this.toppings = []
     },
   },
 })

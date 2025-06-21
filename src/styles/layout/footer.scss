@@ -11,7 +11,8 @@
   }
   &__wrapper {
     width: 100%;
-    padding: 40px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
     border-top: 2px solid #e0e0e0;
     border-bottom: 2px solid #e0e0e0;
     display: flex;
@@ -20,17 +21,17 @@
 
     @media (min-width: 1280px) {
       flex-direction: row;
-      padding: 64px;
+      padding: 3rem 1rem;
     }
 
     @media (max-width: 768px) {
-      padding: 24px 16px;
-      gap: 24px;
+      padding: 2rem 1rem;
+      gap: 2rem;
     }
 
     @media (max-width: 480px) {
-      padding: 20px 12px;
-      gap: 20px;
+      padding: 1rem 1rem;
+      gap: 1rem;
     }
   }
 

@@ -12,7 +12,7 @@
               'choose-pizza__card--active': pizzaStore.selectedPizzaId === pizza.id,
               'choose-pizza__card--offer': pizza.discount.is_active,
             }"
-            @click="selectPizza(pizza)"
+            @click="handlePizzaSelection(pizza.id)"
           >
             <!-- Display offer tag if pizza has an active discount -->
             <div v-if="pizza.discount.is_active" class="choose-pizza__offer-tag">
@@ -50,36 +50,40 @@
 
 <script setup lang="ts">
 import pizzaList from '@/json/pizza-list.json'
-import toppingList from '@/json/topping-list.json'
 import offerTag from '@/assets/images/ribbon.svg'
 import { useTopping, usePizza } from '@/stores/index'
 import { formatPrice } from '@/lib/utils'
-import type { Pizza, Topping } from '@/types'
+import type { Pizza } from '@/types'
 
 const pizzas = pizzaList.data as Pizza[]
-const toppings = toppingList.data as Topping[]
 const toppingStore = useTopping()
 const pizzaStore = usePizza()
 
-// Function to handle pizza selection
-const selectPizza = (pizza: Pizza) => {
-  if (pizzaStore.selectedPizzaId === pizza.id) {
+const handlePizzaSelection = (pizzaId: number) => {
+  const selectedPizza = pizzas.find((pizza) => pizza.id === pizzaId)
+  if (!selectedPizza) return
+
+  // If the same pizza is clicked again, reset selection
+  if (pizzaStore.selectedPizzaId === pizzaId) {
     pizzaStore.resetPizza()
     toppingStore.resetTopping()
-  } else {
-    pizzaStore.selectedPizzaId = pizza.id
-    pizzaStore.setPizza(pizza)
+    return
   }
+
+  pizzaStore.setPizza(selectedPizza)
+
   if (toppingStore.toppings.length > 0) {
-    toppings.forEach((topping) => {
-      if (
-        !pizzaStore.pizza.toppings?.includes(topping.id) &&
-        toppingStore.toppings?.includes(topping)
-      ) {
-        toppingStore.setTopping(topping)
-      }
-    })
+    manageToppingsOnPizzaChange(selectedPizza.toppings || [])
   }
+}
+
+//  Manages toppings when changing pizza selection
+const manageToppingsOnPizzaChange = (allowedToppingIds: number[]) => {
+  toppingStore.toppings.forEach((topping) => {
+    if (!allowedToppingIds.includes(topping.id)) {
+      toppingStore.toggleToppingSelection({ ...topping, is_active: false })
+    }
+  })
 }
 </script>
 

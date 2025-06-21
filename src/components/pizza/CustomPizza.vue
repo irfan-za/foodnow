@@ -31,20 +31,20 @@
       <p>Toppings</p>
       <div class="custom-toppings__grid">
         <label
-          v-for="topping in toppings"
+          v-for="topping in availableToppings"
           :key="topping.id"
           class="custom-checkbox-label"
           :class="{
-            'is-selected': isToppingSelected(topping.id),
-            'is-disabled': !isToppingAllowed(topping.id),
+            'is-selected': topping.is_selected,
+            'is-disabled': !topping.is_active,
           }"
-          @click.prevent="handleToppingClick(topping)"
+          @click.prevent="toggleTopping(topping)"
         >
           <input
             type="checkbox"
             :value="topping.id"
-            :checked="isToppingSelected(topping.id)"
-            :disabled="!isToppingAllowed(topping.id)"
+            :checked="topping.is_selected"
+            :disabled="!topping.is_active"
             class="custom-checkbox__input"
           />
           <span class="custom-checkbox__text">{{ topping.name }}</span>
@@ -55,17 +55,35 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch, onMounted, computed } from 'vue'
 import sizePizza from '@/json/size-list.json'
 import toppingList from '@/json/topping-list.json'
 import { usePizzaSize, useTopping, usePizza } from '@/stores/index'
 import type { Topping } from '@/types'
 
+const toppingData = ref(toppingList.data)
 const optionSize = ref(sizePizza.data)
 const pizzaSizeStore = usePizzaSize()
 const toppingStore = useTopping()
 const pizzaStore = usePizza()
 
+const availableToppings = computed(() => {
+  const isPizzaSelected = pizzaStore.selectedPizzaId !== null
+  // Map toppings with their active and selected status
+  return toppingData.value.map((topping) => {
+    const isActive = isPizzaSelected ? pizzaStore.pizza.toppings?.includes(topping.id) : false
+    const isSelected = isPizzaSelected
+      ? toppingStore.toppings.some((t) => t.id === topping.id)
+      : false
+    return {
+      ...topping,
+      is_active: isActive,
+      is_selected: isSelected,
+    }
+  })
+})
+
+// Initialize selected size
 const selectedSize = ref(
   optionSize.value.find((size) => size.id === pizzaSizeStore.pizzaSize.id) ||
     optionSize.value[0] ||
@@ -93,26 +111,8 @@ onMounted(() => {
   }
 })
 
-const toppings = ref(toppingList.data)
-
-// Check if a topping is allowed based on the selected pizza
-const isToppingAllowed = (toppingId: number) => {
-  if (pizzaStore.selectedPizzaId === null) {
-    return false
-  }
-  return pizzaStore.pizza.toppings?.includes(toppingId) || false
-}
-
-// Check if a topping is currently selected
-const isToppingSelected = (toppingId: number) => {
-  return toppingStore.toppings.some((item) => item.id === toppingId)
-}
-
-// Handle the select/unselect topping
-const handleToppingClick = (topping: Topping) => {
-  if (isToppingAllowed(topping.id)) {
-    toppingStore.setTopping(topping)
-  }
+const toggleTopping = (topping: Topping) => {
+  toppingStore.toggleToppingSelection(topping)
 }
 </script>
 

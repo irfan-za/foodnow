@@ -28,6 +28,8 @@ type Topping = {
   id: number
   name: string
   price: number
+  is_selected?: boolean
+  is_active?: boolean
 }
 
 export type { PizzaSize, Pizza, Topping }

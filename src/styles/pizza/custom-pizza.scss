@@ -3,22 +3,7 @@
 .custom {
   &-content {
     width: 100%;
-    padding: 40px 24px;
     margin: 0 auto;
-    @media (min-width: 1280px) {
-      flex-direction: row;
-      padding: 64px;
-    }
-
-    @media (max-width: 768px) {
-      padding: 24px 16px;
-      gap: 24px;
-    }
-
-    @media (max-width: 480px) {
-      padding: 20px 12px;
-      gap: 20px;
-    }
   }
 
   &-pizza {
@@ -46,6 +31,7 @@
     align-items: center;
     color: black;
     gap: 1rem;
+    margin-left: 0.5rem;
 
     @media (max-width: 768px) {
       gap: 0;

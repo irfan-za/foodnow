@@ -38,7 +38,6 @@
             'is-selected': topping.is_selected,
             'is-disabled': !topping.is_active,
           }"
-          @click.prevent="toggleTopping(topping)"
         >
           <input
             type="checkbox"
@@ -46,6 +45,7 @@
             :checked="topping.is_selected"
             :disabled="!topping.is_active"
             class="custom-checkbox__input"
+            @click.prevent="toggleTopping(topping)"
           />
           <span class="custom-checkbox__text">{{ topping.name }}</span>
         </label>
